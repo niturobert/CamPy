@@ -1,0 +1,164 @@
+[
+  {
+    "directory": "/home/jcd/Projects/CamPy/build-aux",
+    "command": "/usr/lib/python-exec/python3.8/meson --internal msgfmthelper ../data/io.sighub.campy.desktop.in data/io.sighub.campy.desktop desktop ../data/../po",
+    "file": "../data/io.sighub.campy.desktop.in",
+    "output": "data/io.sighub.campy.desktop"
+  },
+  {
+    "directory": "/home/jcd/Projects/CamPy/build-aux",
+    "command": "/usr/lib/python-exec/python3.8/meson --internal msgfmthelper ../data/io.sighub.campy.appdata.xml.in data/io.sighub.campy.appdata.xml xml ../data/../po",
+    "file": "../data/io.sighub.campy.appdata.xml.in",
+    "output": "data/io.sighub.campy.appdata.xml"
+  },
+  {
+    "directory": "/home/jcd/Projects/CamPy/build-aux",
+    "command": "/usr/bin/glib-compile-resources ../src/campy.gresource.xml --sourcedir ../src --internal --generate --target src/campy.gresource --dependency-file src/campy.gresource.d",
+    "file": "../src/campy.gresource.xml",
+    "output": "src/campy.gresource"
+  },
+  {
+    "directory": "/home/jcd/Projects/CamPy/build-aux",
+    "command": "",
+    "file": "meson-campy-pot",
+    "output": "campy-pot"
+  },
+  {
+    "directory": "/home/jcd/Projects/CamPy/build-aux",
+    "command": "",
+    "file": "meson-campy-gmo",
+    "output": "campy-gmo"
+  },
+  {
+    "directory": "/home/jcd/Projects/CamPy/build-aux",
+    "command": "",
+    "file": "meson-campy-update-po",
+    "output": "campy-update-po"
+  },
+  {
+    "directory": "/home/jcd/Projects/CamPy/build-aux",
+    "command": "/usr/lib/python-exec/python3.8/meson test --no-rebuild --print-errorlogs",
+    "file": "all",
+    "output": "meson-test"
+  },
+  {
+    "directory": "/home/jcd/Projects/CamPy/build-aux",
+    "command": "",
+    "file": "meson-test",
+    "output": "test"
+  },
+  {
+    "directory": "/home/jcd/Projects/CamPy/build-aux",
+    "command": "/usr/lib/python-exec/python3.8/meson test --benchmark --logbase benchmarklog --num-processes=1 --no-rebuild",
+    "file": "all",
+    "output": "meson-benchmark"
+  },
+  {
+    "directory": "/home/jcd/Projects/CamPy/build-aux",
+    "command": "",
+    "file": "meson-benchmark",
+    "output": "benchmark"
+  },
+  {
+    "directory": "/home/jcd/Projects/CamPy/build-aux",
+    "command": "/usr/lib/python-exec/python3.8/meson install --no-rebuild",
+    "file": "PHONY",
+    "output": "meson-install"
+  },
+  {
+    "directory": "/home/jcd/Projects/CamPy/build-aux",
+    "command": "",
+    "file": "meson-install",
+    "output": "install"
+  },
+  {
+    "directory": "/home/jcd/Projects/CamPy/build-aux",
+    "command": "/usr/lib/python-exec/python3.8/meson dist",
+    "file": "PHONY",
+    "output": "meson-dist"
+  },
+  {
+    "directory": "/home/jcd/Projects/CamPy/build-aux",
+    "command": "",
+    "file": "meson-dist",
+    "output": "dist"
+  },
+  {
+    "directory": "/home/jcd/Projects/CamPy/build-aux",
+    "command": "/usr/lib/python-exec/python3.8/meson --internal scanbuild /home/jcd/Projects/CamPy /home/jcd/Projects/CamPy/build-aux /usr/lib/python-exec/python3.8/meson",
+    "file": "PHONY",
+    "output": "meson-scan-build"
+  },
+  {
+    "directory": "/home/jcd/Projects/CamPy/build-aux",
+    "command": "",
+    "file": "meson-scan-build",
+    "output": "scan-build"
+  },
+  {
+    "directory": "/home/jcd/Projects/CamPy/build-aux",
+    "command": "/usr/lib/python-exec/python3.8/meson --internal tags ctags /home/jcd/Projects/CamPy",
+    "file": "PHONY",
+    "output": "meson-ctags"
+  },
+  {
+    "directory": "/home/jcd/Projects/CamPy/build-aux",
+    "command": "",
+    "file": "meson-ctags",
+    "output": "ctags"
+  },
+  {
+    "directory": "/home/jcd/Projects/CamPy/build-aux",
+    "command": "/usr/lib/python-exec/python3.8/meson --internal uninstall",
+    "file": "PHONY",
+    "output": "meson-uninstall"
+  },
+  {
+    "directory": "/home/jcd/Projects/CamPy/build-aux",
+    "command": "",
+    "file": "meson-uninstall",
+    "output": "uninstall"
+  },
+  {
+    "directory": "/home/jcd/Projects/CamPy/build-aux",
+    "command": "",
+    "file": "data/io.sighub.campy.desktop",
+    "output": "all"
+  },
+  {
+    "directory": "/home/jcd/Projects/CamPy/build-aux",
+    "command": "",
+    "file": "meson-clean",
+    "output": "clean"
+  },
+  {
+    "directory": "/home/jcd/Projects/CamPy/build-aux",
+    "command": "/usr/lib/python-exec/python3.8/meson --internal cleantrees /home/jcd/Projects/CamPy/build-aux/meson-private/cleantrees.dat",
+    "file": "PHONY",
+    "output": "meson-clean-ctlist"
+  },
+  {
+    "directory": "/home/jcd/Projects/CamPy/build-aux",
+    "command": "",
+    "file": "meson-clean-ctlist",
+    "output": "clean-ctlist"
+  },
+  {
+    "directory": "/home/jcd/Projects/CamPy/build-aux",
+    "command": "/usr/bin/ninja -t clean",
+    "file": "PHONY",
+    "output": "meson-clean"
+  },
+  {
+    "directory": "/home/jcd/Projects/CamPy/build-aux",
+    "command": "/usr/lib/python-exec/python3.8/meson --internal regenerate /home/jcd/Projects/CamPy /home/jcd/Projects/CamPy/build-aux --backend ninja",
+    "file": "../meson.build",
+    "output": "build.ninja"
+  },
+  {
+    "directory": "/home/jcd/Projects/CamPy/build-aux",
+    "command": "/usr/lib/python-exec/python3.8/meson --internal regenerate /home/jcd/Projects/CamPy /home/jcd/Projects/CamPy/build-aux --backend ninja",
+    "file": "PHONY",
+    "output": "reconfigure"
+  }
+]
