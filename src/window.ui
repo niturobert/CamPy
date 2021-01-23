@@ -118,7 +118,7 @@
                                 <property name="halign">end</property>
                                 <property name="hexpand">True</property>
                                 <property name="max_length">4</property>
-                                <property name="text" translatable="yes">640</property>
+                                <property name="text" translatable="yes">1280</property>
                                 <property name="placeholder_text" translatable="yes">es. 640</property>
                                 <property name="input_purpose">number</property>
                               </object>
@@ -134,7 +134,7 @@
                                 <property name="halign">end</property>
                                 <property name="hexpand">True</property>
                                 <property name="max_length">4</property>
-                                <property name="text" translatable="yes">480</property>
+                                <property name="text" translatable="yes">720</property>
                                 <property name="placeholder_text" translatable="yes">es. 480</property>
                                 <property name="input_purpose">number</property>
                               </object>

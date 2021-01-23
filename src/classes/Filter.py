@@ -14,14 +14,12 @@ from os.path import expanduser
 
 class Filter:
     package_name = "io.sighub.tay_ai"
-    # model_directory = expanduser("~/.local/share/io.sighub.campy/models/")
-    # model_path = model_directory + "model-stride32.json"
 
     def __init__(self):
         # TODO: salvare il modello al primo download.
         self.bodypix_model = load_model(
             download_model(
-                BodyPixModelPaths.MOBILENET_FLOAT_50_STRIDE_16
+                BodyPixModelPaths.MOBILENET_FLOAT_75_STRIDE_16
             )
         )
 
@@ -86,7 +84,7 @@ class Filter:
         mask = self.get_people_mask(frame)
         if self.current_frame >= self.background_video.get(cv2.CAP_PROP_FRAME_COUNT):
             self.current_frame = 1
-            self.background_video.set(cv2.CV_CAP_PROP_POS_FRAMES, self.current_frame)
+            self.background_video.set(cv2.CAP_PROP_POS_FRAMES, self.current_frame)
 
         width, height = frame.shape[1], frame.shape[0]
         self.current_frame += 1

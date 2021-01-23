@@ -3,5 +3,7 @@
   <gresource prefix="/io/sighub/campy">
     <file>window.ui</file>
     <file>models/bodypix.json</file>
+    <file>classes/CamPy.py</file>
+    <file>classes/Filter.py</file>
   </gresource>
 </gresources>
