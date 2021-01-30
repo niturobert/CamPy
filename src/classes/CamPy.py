@@ -2,6 +2,7 @@
 
 
 from gi.repository import GLib
+
 import cv2
 import pyfakewebcam
 

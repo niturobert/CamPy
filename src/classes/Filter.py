@@ -26,6 +26,7 @@ class Filter:
         self.options = {
             "animated": True,
             "background": None,
+            "hologram": False,
         }
 
         self.background_image = None
@@ -54,8 +55,36 @@ class Filter:
         # convertiamolo in un bell'array
         mask = tensorflow.keras.preprocessing.image.img_to_array(mask)
         mask = cv2.dilate(mask, numpy.ones((10,10), numpy.uint8) , iterations=1)
-        mask = cv2.erode(mask, numpy.ones((10,10), numpy.uint8) , iterations=1)
+
+        #mask = cv2.erode(mask, numpy.ones((10,10), numpy.uint8) , iterations=1)
+        mask = cv2.blur(mask.astype(float), (30,30))
+
         return mask
+
+    def apply_hologram_effect(self, frame):
+        def shift_image(img, dx, dy):
+            img = numpy.roll(img, dy, axis=0)
+            img = numpy.roll(img, dx, axis=1)
+            if dy>0:
+                img[:dy, :] = 0
+            elif dy<0:
+                img[dy:, :] = 0
+            if dx>0:
+                img[:, :dx] = 0
+            elif dx<0:
+                img[:, dx:] = 0
+            return img
+
+        blue_pill = cv2.applyColorMap(frame, cv2.COLORMAP_WINTER)
+        bandLength, bandGap = 2, 3
+        for y in range(blue_pill.shape[0]):
+            if y % (bandLength+bandGap) < bandLength:
+                blue_pill[y,:,:] = blue_pill[y,:,:] * numpy.random.uniform(0.1, 0.3)
+
+        blue_blur = cv2.addWeighted(blue_pill, 0.2, shift_image(blue_pill.copy(), 5, 5), 0.8, 0)
+        blue_blur = cv2.addWeighted(blue_blur, 0.5, shift_image(blue_blur.copy(), -5, -5), 0.6, 0)
+        return cv2.addWeighted(frame, 0.5, blue_blur, 0.6, 0)
+
 
     def apply(self, frame):
         if self.options["animated"]:
@@ -73,6 +102,7 @@ class Filter:
         cv2.waitKey(0)
         cv2.destroyAllWindows()
 
+        if self.options["hologram"]: frame = self.apply_hologram_effect(frame)
         inv_mask = 1 - mask
         for c in range(frame.shape[2]):
             frame[:,:,c] = frame[:,:,c] * mask + background_frame[:,:,c] * inv_mask
@@ -95,6 +125,7 @@ class Filter:
 
         background_frame = cv2.resize(background_frame, (width, height))
 
+        if self.options["hologram"]: frame = self.apply_hologram_effect(frame)
         inv_mask = 1 - mask
         for c in range(frame.shape[2]):
             frame[:,:,c] = frame[:,:,c] * mask + background_frame[:,:,c] * inv_mask

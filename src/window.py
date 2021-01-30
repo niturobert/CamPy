@@ -37,6 +37,7 @@ class CampyWindow(Gtk.ApplicationWindow):
 
     # Filter properties
     switch_animated_background = Gtk.Template.Child()
+    switch_hologram = Gtk.Template.Child()
     filechooser_background = Gtk.Template.Child()
 
 
@@ -73,6 +74,7 @@ class CampyWindow(Gtk.ApplicationWindow):
     def bind_signals(self):
         # Stuff for the filter
         self.switch_animated_background.connect('state-set', self.handle_switch_animated_background)
+        self.switch_hologram.connect('state-set', self.handle_switch_hologram)
 
         # Connect the bottom buttons
         self.button_prova.connect('clicked', self.handle_button_test)
@@ -112,6 +114,9 @@ class CampyWindow(Gtk.ApplicationWindow):
         else:
             # Background should not be animated
             self.filechooser_background.set_filter(self.filefilter_photo)
+
+    def handle_switch_hologram(self, *args):
+        self.webcam_driver.filters[0].set_option("hologram", args[1])
 
     def handle_button_test(self, *args):
         self.set_webcam_values()
